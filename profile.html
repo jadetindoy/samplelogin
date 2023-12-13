@@ -9,8 +9,8 @@
 <body>
     <div class="container">
         <div class="card">
-            <h2>PRofile Page</h2>
-            <button onclick="logOut(events)" style="float: right;">Logout</button>
+            <h2>Profile Page</h2>
+            <button type="button" onclick="logOut(event)" style="float: right;">Logout</button>
             <hr>
             <h3>Welcome</h3>
             <h4>
@@ -18,8 +18,21 @@
                     document.write(localStorage.getItem('name'));
                 </script>
             </h4>
+            <h6> Your Email is:
+                <script>
+                    document.write(localStorage.getItem('email'));
+                </script>
+            </h6>
         </div>
     </div>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+<script>
+    function logOut(event){
+        event.preventDefault();
+        localStorage.removeItem('name');
+        localStorage.removeItem('email');
+        window.location.href="./login.html";
+    }
+</script>
 </html>
